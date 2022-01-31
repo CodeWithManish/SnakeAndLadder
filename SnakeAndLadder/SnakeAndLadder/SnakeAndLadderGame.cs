@@ -17,7 +17,7 @@ namespace SnakeAndLadder
             counter++;
             return dice;
         }
-        public void Play()
+        public int Play()
         {
             const int NOPLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100;
             int option = random.Next(1, 3);
@@ -43,9 +43,12 @@ namespace SnakeAndLadder
                     case NOPLAY:
                         break;
                 }
-                Console.WriteLine("player position are:{0}", playerPosition);
+
+
             }
-            Console.WriteLine("the total number of time the Dice was played {0}", counter);
+            return playerPosition;
+
+
 
         }
     }
