@@ -18,21 +18,31 @@ namespace SnakeAndLadder
         }
         public void Play()
         {
-            const int NOPLAY = 0, LADDER = 1, SNAKE = 2;
+            const int NOPLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100;
             int option = random.Next(1, 3);
             int diceoutcome = DiceRoll();
-            switch (option)
-            {
-                case LADDER:
-                    playerPosition += diceoutcome;
-                    break;
-                case SNAKE:
-                    playerPosition -= diceoutcome;
-                    break;
 
-                case NOPLAY:
-                    break;
+            while (playerPosition < WINNING_POSITION)
+            {
+                switch (option)
+                {
+                    case LADDER:
+                        playerPosition += diceoutcome;
+                        break;
+
+                    case SNAKE:
+                        if (playerPosition < NOPLAY)
+                            playerPosition -= diceoutcome;
+                        else
+                            playerPosition = NOPLAY;
+
+                        break;
+
+                    case NOPLAY:
+                        break;
+                }
             }
+
         }
     }
 }

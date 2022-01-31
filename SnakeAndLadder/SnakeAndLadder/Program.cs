@@ -12,6 +12,7 @@ namespace SnakeAndLadder
         {
             Console.WriteLine("Welcome to Snake and Ladder problem statement");
             SnakeAndLadderGame player1 = new SnakeAndLadderGame();
+            player1.Play();
 
         }
     }
